@@ -24,5 +24,5 @@ int countChar(std::string line, char c) {
 }
 
 std::string indentLine(std::string line, int indentLevel) {
-    return std::string(indentLevel, '\t') + line;
+    return std::string(indentLevel, '\t') + removeLeadingSpaces(line);
 }
