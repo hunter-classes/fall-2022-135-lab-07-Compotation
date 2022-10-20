@@ -9,10 +9,15 @@ TEST_CASE("remove tabs and spaces") {
     CHECK_EQ(removeLeadingSpaces("hi hi"), "hi hi");
     CHECK_EQ(removeLeadingSpaces("    hi"), "hi");
     CHECK_EQ(removeLeadingSpaces("       int x = 1;  "), "int x = 1;  ");
+    CHECK_EQ(removeLeadingSpaces("                    }"), "}");
 }
 
 TEST_CASE("count chars") {
     CHECK_EQ(countChar("\t\t\tfiowe", '\t'), 3);
     CHECK_EQ(countChar("{", '{'), 1);
     CHECK_EQ(countChar("hi", 'c'), 0);
+}
+
+TEST_CASE("indent") {
+    CHECK_EQ(indentLine("                    }", 2), "\t\t}");
 }
