@@ -6,7 +6,7 @@
 
 * GitHub username: Compotation
 
-* Notes:
+* Notes: Main directly opens file with ifstream. Don't need to redirect input from file.
 
 
   

@@ -1,25 +1,15 @@
 #include <iostream>
 #include "funcs.h"
+#include <fstream>
 
 int main() {
-    std::string currentLine;
-    /**
-    while(std::getline(std::cin, currentLine)) {
-        std::cout << removeLeadingSpaces(currentLine) << std::endl;
-    }*/
+    std::ifstream taskAFile;
+    taskAFile.open("poorlyformatted.cpp");
+    std::cout << "Task A" << std::endl << std::endl;
+    unindentLines(taskAFile);
 
-    int indentLevel = 0;
-    while(std::getline(std::cin, currentLine)) {
-        std::string unindentedLine = removeLeadingSpaces(currentLine);
-        bool firstCharClose = unindentedLine[0] == '}';
-        if (firstCharClose) {
-            indentLevel--;
-        }
-        std::cout << indentLine(currentLine, indentLevel) << std::endl;
-        indentLevel += countChar(unindentedLine, '{');
-        if (!firstCharClose) {
-            indentLevel -= countChar(unindentedLine, '}');
-        }
-    }
-    return 0;
+    std::ifstream taskBFile;
+    taskBFile.open("poorlyformatted.cpp");
+    std::cout << "Task B" << std::endl << std::endl;
+    indentLines(taskBFile);
 }
